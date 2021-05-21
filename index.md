@@ -13,7 +13,7 @@ cancers are complex assemblies of tumor, immune, and stromal cells that invade
 adjacent tissue and spread to distant sites. We use highly multiplexed tissue
 imaging, spatial statistics, and machine learning to identify cell types and
 states underlying morphological features of known diagnostic and prognostic
-significance in colorectal cancer. This includes the tumor invasive margin,
+significance in melanoma. This includes the tumor invasive margin,
 where tumor, normal, and immune cells compete and were diverse immunosuppressive
 environments are found.
 
