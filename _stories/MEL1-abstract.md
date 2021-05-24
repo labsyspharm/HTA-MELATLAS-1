@@ -1,5 +1,5 @@
 ---
 layout: story
 exhibit_json: ../exhibits/MEL1-abstract.json
-exhibit type: story
+story_type: exploration
 ---

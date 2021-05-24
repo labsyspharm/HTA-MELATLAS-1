@@ -8,5 +8,5 @@ plugins:
   - jekyll-remote-theme
 
 collections:
-  minerva:
+  stories:
     output: true

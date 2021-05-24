@@ -31,28 +31,27 @@ following thumbnail images for an interactive view of the
 full-resolution images.**
 
 {%
-    assign overviews = site.minerva
+    assign overviews = site.stories
     | where_exp: "item", "item.hide != true"
-    | where_exp: "item", "item['exhibit type'] != 'story'"
+    | where_exp: "item", "item['story_type'] == 'overview'"
 %}
 {%
-    assign stories = site.minerva
+    assign explorations = site.stories
     | where_exp: "item", "item.hide != true"
-    | where_exp: "item", "item['exhibit type'] == 'story'"
+    | where_exp: "item", "item['story_type'] == 'exploration'"
     | sort: "nav_order"
 %}
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
 
-{% for overview in overviews %}
-{% assign thumbnail_name = overview.url
+{% for story in overviews %}
+{% assign thumbnail_name = story.url
     | split: '/'
     | last
     | replace: '.html', '.jpg'
     | prepend: "thumbnail-"
 %}
-{% assign caption =
-    overview.url
+{% assign caption = story.url
     | split: '/'
     | last
     | replace: '-he-overview.html', ' – H&E'
@@ -60,7 +59,7 @@ full-resolution images.**
     | replace: 'mel', 'MEL'
 %}
 <figure class="figure-story">
-    <a href="{{ overview.url | prepend: site.baseurl }}">
+    <a href="{{ story.url | prepend: site.baseurl }}">
         <img src="{{ site.baseurl }}/images/{{ thumbnail_name }}">
         <figcaption>{{ caption }}</figcaption>
     </a>
@@ -74,7 +73,7 @@ full-resolution images.**
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
 
-{% for story in stories %}
+{% for story in explorations %}
 {% assign thumbnail_name = story.url
     | split: '/'
     | last
