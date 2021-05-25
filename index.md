@@ -85,7 +85,8 @@ full-resolution images.**
     | split: '/'
     | last
     | replace: '.html', ''
-    | replace: '-', ' – '
+    | replace_first: '-', ' – '
+    | replace: '-', ' '
 %}
 <figure class="figure-story">
     <a href="{{ story.url | prepend: site.baseurl }}">
